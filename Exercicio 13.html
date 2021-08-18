@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Exercicio 13</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://kit.fontawesome.com/a8d80b3984.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <string></string>
+		<link rel="stylesheet type="text/css" href="Estilo.css"/>
+		<script src="https//kit.fontawesome.com/08d80b3984.js"></script>
+	 </head>
+	<body>
+		<script>
+			let correto = 0;
+			let errado = 0;
+			let respondidos = 0;
+			let Rp1;
+			let Rp2;
+			let Rp3;
+			function verificar_se_foi_tudo_respondido() {
+				if (respondidos === 3) {
+					document.getElementById('confirmar').disabled = false;
+				}
+			}
+			function p1(but)
+			{
+				if(document.getElementById(but.id).disabled) return;
+				if(but.value === "Verdadeiro"){
+					document.getElementById(but.id).style.backgroundColor="blue";
+					document.getElementById('p1-a').disabled = true;
+					document.getElementById('p1-b').disabled = true;
+					document.getElementById('confirmar').disabled = false;
+					correto = correto+1;
+					Rp1 = true;
+					respondidos = respondidos+1;
+				} else {
+					document.getElementById(but.id).style.backgroundColor="blue";
+					document.getElementById('p1-a').disabled = true;
+					document.getElementById('p1-b').disabled = true;
+					document.getElementById('confirmar').disabled = false;
+					errado = errado+1;
+					Rp1 = false;
+					respondidos = respondidos+1;
+				}
+				console.log("errado", errado)
+				console.log("correto", correto)
+				verificar_se_foi_tudo_respondido()
+			}
+			function p2(but)
+			{
+				if(document.getElementById(but.id).disabled) return;
+				if(but.value === "Verdadeiro"){
+					document.getElementById(but.id).style.backgroundColor="blue";
+					document.getElementById('p2-a').disabled = true;
+					document.getElementById('p2-b').disabled = true;
+					document.getElementById('confirmar').disabled = false;
+					Rp2= true;
+					correto = correto+1;
+					respondidos = respondidos+1;
+				} else {
+					document.getElementById(but.id).style.backgroundColor="blue";
+                    document.getElementById('p2-a').disabled = true;
+					document.getElementById('p2-b').disabled = true;
+					document.getElementById('confirmar').disabled = false;
+					Rp2= false;
+					errado = errado+1;
+					respondidos = respondidos+1;
+
+				}
+				console.log("errado", errado)
+				console.log("correto", correto)
+				verificar_se_foi_tudo_respondido()
+			}
+			function p3(but)
+				{
+					if(document.getElementById(but.id).disabled) return;
+					if(but.value === "Falso"){
+						document.getElementById(but.id).style.backgroundColor="blue";
+						document.getElementById('p3-a').disabled = true;
+						document.getElementById('p3-b').disabled = true;
+						document.getElementById('confirmar').disabled = false;
+						Rp3= true;
+						correto = correto+1;
+						respondidos = respondidos+1;
+					} else {
+						document.getElementById(but.id).style.backgroundColor="blue";
+						document.getElementById('p3-a').disabled = true;
+						document.getElementById('p3-b').disabled = true;
+						document.getElementById('confirmar').disabled = false;
+						Rp3= false;
+
+						errado = errado+1;
+						respondidos = respondidos+1;
+	
+					}
+					console.log("errado", errado)
+					console.log("correto", correto)
+				verificar_se_foi_tudo_respondido()
+				}
+			function confirmar(but)
+			{
+				console.log(respondidos)
+				if(respondidos === 3) {
+					console.log({
+						Rp1,
+						Rp2,
+						Rp3,
+					});
+
+					if(!Rp1){
+						document.getElementById('p1-b').style.backgroundColor="red";
+						document.getElementById('p1-a').style.backgroundColor="rgb(194, 194, 187)";
+						document.getElementById('p1-b').value="errado";
+					}
+					if(!Rp2) {
+						document.getElementById('p2-b').style.backgroundColor="red";
+						document.getElementById('p2-a').style.backgroundColor="rgb(194, 194, 187)";
+						document.getElementById('p2-b').value="errado";
+					}
+					if(!Rp3){
+						document.getElementById('p3-a').style.backgroundColor="red";
+						document.getElementById('p3-b').style.backgroundColor="rgb(194, 194, 187)";
+						document.getElementById('p3-a').value="errado";
+					}
+					if(Rp1){
+						document.getElementById('p1-a').style.backgroundColor="green";
+						document.getElementById('p1-b').style.backgroundColor="rgb(194, 194, 187)";
+						document.getElementById('p1-a').value="Correto";
+					}
+					if(Rp2) {
+						document.getElementById('p2-a').style.backgroundColor="green";
+						document.getElementById('p2-b').style.backgroundColor="rgb(194, 194, 187)";
+						document.getElementById('p2-a').value="Correto";
+					}
+					if(Rp3){
+						document.getElementById('p3-b').style.backgroundColor="green";
+						document.getElementById('p3-a').style.backgroundColor="rgb(194, 194, 187)";
+						document.getElementById('p3-b').value="Correto";
+					}						
+					document.getElementById('confirmar').disabled = true;
+
+					document.getElementById('Parabéns').innerHTML += `Acertou: ${correto}`;
+					var button = document.createElement('input');
+					button.type = 'button';
+					button.id = 'submit';
+					button.value = 'Recarregar';
+					button.className = 'btn btn-primary';
+				
+					button.onclick = function() {
+						window.location.reload(false); 
+   					 };
+
+					document.body.appendChild(button);
+				};
+				console.log("errado", errado)
+				console.log("correto", correto)
+			}
+			console.log("errado", errado)
+			console.log("correto", correto)
+			
+		</script>
+		<div class="container">
+			<div class="row">
+				<div class="d-flex flex-column align-items-center ">
+						<img src="img/logoctrlplay2.PNG" class="w-25 rounded mx-auto d-block logo" alt="ctrlplay logo"/>
+	
+						<h1>Aula 13</h1>
+				</div>
+				<div class=" d-flex flex-row">
+						<button type="button" class="btn btn-secondary m-3">Pagina Inicial</button>	
+
+						<div class="dropdown m-3">
+						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+							Redes Sociais
+						  </button>
+						  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							<li><a class="dropdown-item" href="#">Facebook</a></li>
+							<li><a class="dropdown-item" href="#">Instagram</a></li>
+							<li><a class="dropdown-item" href="#">Twitter</a></li>
+						  </ul>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div  >
+			<h3>Pedro Alvares Cabral chegou no Brasil em 22 de abril de 1.500 ? </h3>
+			<!-- <div style="background: gray; width: 200px; cursor: pointer;"> -->
+				<div>
+				<input id="p1-a" type="button" style="background: rgb(194, 194, 187); width: 400px; cursor: pointer;"class="btn btn-secondary" onclick="p1(this)" value="Verdadeiro">
+				<input id="p1-b" type="button" style="background: rgb(194, 194, 187); width: 400px; cursor: pointer;"class="btn btn-secondary" onclick="p1(this)" value="Falso">
+				</div>
+			<h3>O nome verdadeiro de Silvio Santos é Senor Abravanel ? </h3>
+			<div>
+				<input id="p2-a" type="button" style="background: rgb(194, 194, 187); width: 400px; cursor: pointer;"class="btn btn-secondary" onclick="p2(this)" value="Verdadeiro">
+				<input id="p2-b" type="button" style="background: rgb(194, 194, 187); width: 400px; cursor: pointer;"class="btn btn-secondary" onclick="p2(this)" value="Falso">
+				</div>
+			
+				</div>
+			<h3>5 + 1 x 10 = 120 ? </h3>
+			<div>
+				<input id="p3-a" type="button" style="background: rgb(194, 194, 187); width: 400px; cursor: pointer;"class="btn btn-secondary" onclick="p3(this)" value="Verdadeiro">
+				<input id="p3-b" type="button" style="background: rgb(194, 194, 187); width: 400px; cursor: pointer;"class="btn btn-secondary" onclick="p3(this)" value="Falso">
+				</div>
+			
+			</div>
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+			<script src="https//code.jquery.com-3.3.1slim.min.js" integrity="sha384-q8i/x+865DzO0rT7abK41JStQIAqVRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+			
+			<div style="background: rgb(194, 194, 187); width: 800px; cursor: pointer;">
+				<input id="confirmar" disabled type="button" style="background: rgb(194, 194, 187); width: 800px; cursor: pointer;"class="btn btn-secondary" disabled onclick="confirmar(this)" value="confirmar">
+			</div>
+			<h3 id="Parabéns"></h3>
+			
+		</div>
+
+		<footer>
+			<div class="d-flex flex-column align-items-center ">
+				<h4>Site feito por Wilson</h4>
+		
+			</div>
+		</footer>
+</body>
+</html>
